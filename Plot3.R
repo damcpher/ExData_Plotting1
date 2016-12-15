@@ -20,10 +20,15 @@ data[(data[,1] == "2/2/2007"),1] = "Fri"
 #Finally, we call the plot to a PNG graphics device, voila!
 
 png("Plot3.png")
-plot(Sub1~datetime, data=data, type="l", xlab = "Time (seconds from Thu morning)", ylab = "Energy Sub Metering")
+plot(Sub1~datetime, data=data, type="l", axes=FALSE, ylab = "Energy Sub Metering")
 points(Sub2~datetime, data=data, type="l", col="red")
 points(Sub3~datetime, data=data, type="l", col="blue")
 legend("topright", lwd = 1, col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+axis(1, c(0,172680/2, 172680), c("Thu","Fri","Sat"))
+axis(2, seq(0,30,by=10))
+box()
+
+
 dev.off()
 
 

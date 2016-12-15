@@ -20,7 +20,12 @@ data[(data[,1] == "2/2/2007"),1] = "Fri"
 #Finally, we call the plot to a PNG graphics device, voila!
 
 png("Plot2.png")
-plot(GAP~datetime, data=data, type="l", xlab = "Time (seconds from Thu morning)", ylab = "Global Active Power (kilowatts)")
+plot(GAP~datetime, data=data, type="l", ylab = "Global Active Power (kilowatts)", axes=FALSE)
+axis(1, c(0,172680/2, 172680), c("Thu","Fri","Sat"))
+axis(2, seq(0,6,by=2))
+box()
+
+
 dev.off()
 
 
